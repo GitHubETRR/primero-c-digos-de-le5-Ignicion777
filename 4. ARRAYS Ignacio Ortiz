@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define TAM 100
+
+int encontrarMaximo(int vec[]) {
+    int max = vec[0];
+    for (int i = 1; i < TAM; i++) {
+        if (vec[i] > max) {
+            max = vec[i];
+        }
+    }
+    return max;
+}
+
+int encontrarMinimo(int vec[]) {
+    int min = vec[0];
+    for (int i = 1; i < TAM; i++) {
+        if (vec[i] < min) {
+            min = vec[i];
+        }
+    }
+    return min;
+}
+
+void mostrarPosMaximo(int vec[], int max) {
+    printf("\nEl máximo (%d) se encuentra en las posiciones: ", max);
+    for (int i = 0; i < TAM; i++) {
+        if (vec[i] == max) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+}
+
+int main() {
+    int vec[TAM];
+    srand(time(NULL));
+
+    for (int i = 0; i < TAM; i++) {
+        vec[i] = rand() % 31 + 10; // de 10 a 40
+    }
+
+    printf("Vector generado:\n");
+    for (int i = 0; i < TAM; i++) {
+        printf("%d ", vec[i]);
+    }
+
+    int max = encontrarMaximo(vec);
+    int min = encontrarMinimo(vec);
+
+    printf("\n\nEl valor máximo es: %d", max);
+    printf("\nEl valor mínimo es: %d\n", min);
+
+    mostrarPosMaximo(vec, max);
+
+    return 0;
+}
