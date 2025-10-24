@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int sumarVector(int vec[], int tam) {
+    int suma = 0;
+    for (int i = 0; i < tam; i++) {
+        suma += vec[i];
+    }
+    return suma;
+}
+
+float promedioVector(int vec[], int tam) {
+    int suma = 0;
+    for (int i = 0; i < tam; i++) {
+        suma += vec[i];
+    }
+    return (float)suma / tam;
+}
+
+int main() {
+    int n;
+
+    printf("Ingrese el tamaño del vector: ");
+    scanf("%d", &n);
+
+    int vector[n]; 
+
+    printf("Ingrese los elementos del vector:\n");
+    for (int i = 0; i < n; i++) {
+        printf("Elemento %d: ", i + 1);
+        scanf("%d", &vector[i]);
+    }
+
+    int resultado = sumarVector(vector, n);
+    float promedio = promedioVector(vector, n);
+
+    printf("\nLa suma de los elementos del vector es: %d\n", resultado);
+    printf("El promedio de los elementos del vector es: %.2f\n", promedio);
+
+    return 0;
+}
