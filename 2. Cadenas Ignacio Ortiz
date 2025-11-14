@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <ctype.h>
+
+// Pasa toda la cadena a minúscula
+void pasaMinuscula(char *cad) {
+    while (*cad) {
+        *cad = tolower(*cad);
+        cad++;
+    }
+}
+
+int main() {
+    char texto[200];
+
+    printf("Ingrese un texto: ");
+    scanf(" %[^\n]", texto);
+
+    pasaMinuscula(texto);
+
+    printf("En minuscula: %s\n", texto);
+
+    return 0;
+}
