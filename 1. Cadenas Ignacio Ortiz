@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int Dimension(char *cad) {
+    int i = 0;
+    while (cad[i] != '\0')
+        i++;
+    return i;
+}
+
+int main() {
+    char texto[200];
+
+    printf("Ingrese un texto: ");
+    scanf(" %[^\n]", texto);
+
+    int largo = Dimension(texto);
+
+    printf("Largo de la cadena: %d\n", largo);
+
+    return 0;
+}
