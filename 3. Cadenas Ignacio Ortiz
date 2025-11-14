@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <ctype.h>
+
+// Convierte en minúscula
+void pasaMinuscula(char *cad) {
+    while (*cad) {
+        *cad = tolower(*cad);
+        cad++;
+    }
+}
+
+// Cuenta vocales
+int vocales(char *cad) {
+    int cont = 0;
+    while (*cad) {
+        if (*cad=='a' || *cad=='e' || *cad=='i' || *cad=='o' || *cad=='u')
+            cont++;
+        cad++;
+    }
+    return cont;
+}
+
+int main() {
+    char texto[200];
+
+    printf("Ingrese un texto: ");
+    scanf(" %[^\n]", texto);
+
+    pasaMinuscula(texto);
+    int cant = vocales(texto);
+
+    printf("Texto en minuscula: %s\n", texto);
+    printf("Cantidad de vocales: %d\n", cant);
+
+    return 0;
+}
