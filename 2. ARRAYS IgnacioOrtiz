@@ -1,40 +1,41 @@
-#include <stdio.h>
-
+#include <stdio.h>   
+// Función que suma todos los elementos de un vector
 int sumarVector(int vec[], int tam) {
-    int suma = 0;
-    for (int i = 0; i < tam; i++) {
-        suma += vec[i];
+    int suma = 0;             // Variable que acumula la suma
+    for (int i = 0; i < tam; i++) {   // Bucle que recorre todo el vector
+        suma += vec[i];       // Se suma cada elemento a la variable 'suma'
     }
-    return suma;
+    return suma;              // Se devuelve el valor total sumado
 }
 
+// Función que calcula el promedio de los elementos de un vector
 float promedioVector(int vec[], int tam) {
-    int suma = 0;
-    for (int i = 0; i < tam; i++) {
-        suma += vec[i];
+    int suma = 0;             // Variable para acumular la suma
+    for (int i = 0; i < tam; i++) {   // Recorrer el vector elemento por elemento
+        suma += vec[i];       // Sumar cada elemento
     }
-    return (float)suma / tam;
+    return (float)suma / tam; // Convertir la suma a float y dividir por la cantidad de elemtos del vector
 }
 
 int main() {
-    int n;
+    int n; // Variable para guardar el tamaño del vector
 
-    printf("Ingrese el tamaño del vector: ");
-    scanf("%d", &n);
+    printf("Ingrese el tamaño del vector: "); // Pide el tamaño del vetor
+    scanf("%d", &n);                           // Lee el tamaño ingresado
 
-    int vector[n]; 
+    int vector[n]; // Declarar un vector de tamaño n 
 
     printf("Ingrese los elementos del vector:\n");
-    for (int i = 0; i < n; i++) {
-        printf("Elemento %d: ", i + 1);
-        scanf("%d", &vector[i]);
+    for (int i = 0; i < n; i++) {                  // Recorre cada posición del vector
+        printf("Elemento %d: ", i + 1);            // Pedir un elemento
+        scanf("%d", &vector[i]);                   // Guardarlo en el vector
     }
 
-    int resultado = sumarVector(vector, n);
-    float promedio = promedioVector(vector, n);
+    int resultado = sumarVector(vector, n);    // Funcion encargada de la sumatoria de todos los elementos del vector
+    float promedio = promedioVector(vector, n); // Funcion encargada de calcular el promedio
 
-    printf("\nLa suma de los elementos del vector es: %d\n", resultado);
-    printf("El promedio de los elementos del vector es: %.2f\n", promedio);
+    printf("\nLa suma de los elementos del vector es: %d\n", resultado);   // Mostrar resultado de la sumatoria
+    printf("El promedio de los elementos del vector es: %.2f\n", promedio);// Mostrar el promedio
 
-    return 0;
+    return 0; 
 }
