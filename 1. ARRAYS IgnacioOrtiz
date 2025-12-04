@@ -1,28 +1,29 @@
-int sumarVector(int vec[], int tam) {
-    int suma = 0;
-    for (int i = 0; i < tam; i++) {
-        suma += vec[i];
+#include <stdio.h>
+int sumarVector(int vec[], int tam) {   // Función que recibe un vector y su tamaño
+    int suma = 0;                       // Acumulador para ir sumando los elementos
+    for (int i = 0; i < tam; i++) {     // Bucle que recorre cada posición del vector, desde 0 hasta tam-1
+        suma += vec[i];                 // Suma cada elemento al acumulador
     }
-    return suma;
+    return suma;                        
 }
 
 int main() {
-    int n;
+    int n;                              // Variable para almacenar el tamaño del vector
 
-    printf("Ingrese el tamaño del vector: ");
-    scanf("%d", &n);
+    printf("Ingrese el tamaño del vector: "); 
+    scanf("%d", &n);                            // Pide el tamaño del vector y guarda el valor ingresado en n
 
-    int vector[n]; // Se define el vector con tamaño n
+    int vector[n];                      // Declara un vector con tamaño variable de n cantidad de posiciones
 
-    printf("Ingrese los elementos del vector:\n");
-    for (int i = 0; i < n; i++) {
-        printf("Elemento %d: ", i + 1);
-        scanf("%d", &vector[i]);
+    printf("Ingrese los elementos del vector:\n"); 
+    for (int i = 0; i < n; i++) {       // Recorre el vector para llenarlo
+        printf("Elemento %d: ", i + 1); // Pide el número correspondiente a la posición actual del vector
+        scanf("%d", &vector[i]);        // Guarda el valor ingresado en el vector
     }
 
-    int resultado = sumarVector(vector, n);
+    int resultado = sumarVector(vector, n); // Función para sumar los elementos
 
-    printf("\nLa suma de los elementos del vector es: %d\n", resultado);
+    printf("\nLa suma de los elementos del vector es: %d\n", resultado); // Muestra la suma total de todos los elementos del vector
 
-    return 0;
+    return 0;                        
 }
