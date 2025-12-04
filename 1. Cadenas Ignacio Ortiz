@@ -1,21 +1,22 @@
 #include <stdio.h>
 
+// Función que calcula el largo de una cadena
 int Dimension(char *cad) {
     int i = 0;
-    while (cad[i] != '\0')
+    while (cad[i] != '\0')   // Recorre la cadena hasta encontrar el fin
         i++;
-    return i;
+    return i - 1;            // Devuelve el largo real sin contar el '\n'
 }
 
 int main() {
-    char texto[200];
+    char texto[200];         // Espacio para el texto (hasta 199 caracteres)
 
     printf("Ingrese un texto: ");
-    scanf(" %[^\n]", texto);
+    fgets(texto, 200, stdin);   // Lee una línea completa, incluyendo espacios
 
-    int largo = Dimension(texto);
+    int largo = Dimension(texto);  // Calcula el largo del texto ingresado
 
-    printf("Largo de la cadena: %d\n", largo);
+    printf("Largo de la cadena: %d\n", largo);  // Muestra el largo de la cadena
 
-    return 0;
+    return 0;   
 }
