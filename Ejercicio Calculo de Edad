@@ -1,0 +1,62 @@
+#include <stdio.h>
+
+#define NDIAS 31
+#define NMESES 12
+
+int main()
+{
+    int anioNac, mesNac, diaNac;
+    int anioAct, mesAct, diaAct;
+    int edad;
+
+    printf("Bienvenido\n");
+    printf("Averiguare su edad\n");
+
+    // Día de nacimiento
+    do {
+        printf("Ingrese el dia en el que nacio: ");
+        scanf("%d", &diaNac);
+    } while (diaNac <= 0 || diaNac > NDIAS);
+
+    // Mes de nacimiento
+    do {
+        printf("Ingrese el mes en el que nacio: ");
+        scanf("%d", &mesNac);
+    } while (mesNac <= 0 || mesNac > NMESES);
+
+    // Año de nacimiento
+    do {
+        printf("Ingrese el año en el que nacio: ");
+        scanf("%d", &anioNac);
+    } while (anioNac <= 0);
+
+    // Día actual
+    do {
+        printf("Ingrese el dia actual: ");
+        scanf("%d", &diaAct);
+    } while (diaAct <= 0 || diaAct > NDIAS);
+
+    // Mes actual
+    do {
+        printf("Ingrese el mes actual: ");
+        scanf("%d", &mesAct);
+    } while (mesAct <= 0 || mesAct > NMESES);
+
+    // Año actual
+    do {
+        printf("Ingrese el año actual: ");
+        scanf("%d", &anioAct);
+    } while (anioAct <= 0 || anioAct < anioNac);
+
+    // Cálculo de la edad base
+    edad = anioAct - anioNac;
+
+    // Verificar si todavía no cumplió años este año
+    if (mesAct < mesNac || (mesAct == mesNac && diaAct < diaNac)) {
+        edad--;
+    }
+
+    printf("Usted tiene %d años", edad);
+
+    return 0;
+}
