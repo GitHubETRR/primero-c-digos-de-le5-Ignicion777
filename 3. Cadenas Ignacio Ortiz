@@ -1,36 +1,35 @@
 #include <stdio.h>
 #include <ctype.h>
 
-// Convierte en minúscula
+// Convierte todo el texto a minúsculas
 void pasaMinuscula(char *cad) {
-    while (*cad) {
-        *cad = tolower(*cad);
-        cad++;
+    while (*cad) {            // Recorre el texto
+        *cad = tolower(*cad); // Pone la letra actual en minúscula
+        cad++;                // Avanza al siguiente carácter
     }
 }
 
-// Cuenta vocales
+// Cuenta cuántas vocales tiene el texto
 int vocales(char *cad) {
-    int cont = 0;
-    while (*cad) {
-        if (*cad=='a' || *cad=='e' || *cad=='i' || *cad=='o' || *cad=='u')
-            cont++;
-        cad++;
+    int cont = 0;             // Contador de vocales
+
+    while (*cad) {            // Recorre el texto
+        if (*cad=='a' || *cad=='e' || *cad=='i' || *cad=='o' || *cad=='u') // Si es vocal
+            cont++;           // Suma una vocal
+        cad++;                // Avanza al siguiente carácter
     }
-    return cont;
+    return cont;              // Devuelve la cantidad encontrada
 }
 
 int main() {
-    char texto[200];
+    char texto[200];              // Variable para guardar el texto ingresado
 
     printf("Ingrese un texto: ");
-    scanf(" %[^\n]", texto);
+    scanf(" %[^\n]", texto);      // Lee la línea completa incluyendo espacios
 
-    pasaMinuscula(texto);
-    int cant = vocales(texto);
+    pasaMinuscula(texto);         // Convierte a minúsculas
+    int cant = vocales(texto);    // Cuenta vocales del texto
 
-    printf("Texto en minuscula: %s\n", texto);
-    printf("Cantidad de vocales: %d\n", cant);
-
-    return 0;
+    printf("Texto en minuscula: %s\n", texto); // Muestra el texto ya convertido
+    printf("Cantidad de vocales: %d\n", cant); // Muestra cuántas vocales hay
 }
