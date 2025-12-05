@@ -2,58 +2,51 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define TAM 100
+#define TAM 100   // Tamaño del vector
 
+// Busca el valor más alto del vector
 int encontrarMaximo(int vec[]) {
-    int max = vec[0];
-    for (int i = 1; i < TAM; i++) {
-        if (vec[i] > max) {
-            max = vec[i];
-        }
-    }
-    return max;
+    int max = vec[0];             // Toma el primer valor como el mayor
+    for (int i = 1; i < TAM; i++) // Recorre el vector
+        if (vec[i] > max)         // Si aparece un valor más grande
+            max = vec[i];         // Lo guarda como nuevo máximo
+    return max;                   // Devuelve el más grande
 }
 
+// Busca el valor más bajo del vector
 int encontrarMinimo(int vec[]) {
-    int min = vec[0];
-    for (int i = 1; i < TAM; i++) {
-        if (vec[i] < min) {
-            min = vec[i];
-        }
-    }
-    return min;
+    int min = vec[0];             // Toma el primer valor como el menor
+    for (int i = 1; i < TAM; i++) // Recorre el vector
+        if (vec[i] < min)         // Si aparece un valor más chico
+            min = vec[i];         // Lo guarda como nuevo mínimo
+    return min;                   // Devuelve el más pequeño
 }
 
+// Muestra las posiciones donde aparece el valor máximo
 void mostrarPosMaximo(int vec[], int max) {
     printf("\nEl máximo (%d) se encuentra en las posiciones: ", max);
-    for (int i = 0; i < TAM; i++) {
-        if (vec[i] == max) {
-            printf("%d ", i);
-        }
-    }
+    for (int i = 0; i < TAM; i++) // Recorre el vector
+        if (vec[i] == max)        // Si encuentra el máximo
+            printf("%d ", i);     // Muestra la posición
     printf("\n");
 }
 
 int main() {
-    int vec[TAM];
-    srand(time(NULL));
+    int vec[TAM];         // Vector de 100 posiciones
+    srand(time(NULL));    // Activa números aleatorios
 
-    for (int i = 0; i < TAM; i++) {
-        vec[i] = rand() % 31 + 10; // de 10 a 40
-    }
+    for (int i = 0; i < TAM; i++)
+        vec[i] = rand() % 31 + 10; // Carga valores del 10 al 40
 
     printf("Vector generado:\n");
-    for (int i = 0; i < TAM; i++) {
-        printf("%d ", vec[i]);
-    }
+    for (int i = 0; i < TAM; i++)
+        printf("%d ", vec[i]);    // Muestra el vector
 
-    int max = encontrarMaximo(vec);
-    int min = encontrarMinimo(vec);
+    int max = encontrarMaximo(vec); // Guarda el mayor valor
+    int min = encontrarMinimo(vec); // Guarda el menor valor
 
     printf("\n\nEl valor máximo es: %d", max);
     printf("\nEl valor mínimo es: %d\n", min);
 
-    mostrarPosMaximo(vec, max);
-
-    return 0;
+    mostrarPosMaximo(vec, max);     // Muestra en que posiciones del vector aparece el valor denominado como el mas alto
 }
