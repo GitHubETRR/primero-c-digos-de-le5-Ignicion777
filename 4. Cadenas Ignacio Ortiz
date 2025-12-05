@@ -1,29 +1,28 @@
 #include <stdio.h>
 
+// Invierte el texto original y lo guarda en otro
 void Invertir(char *orig, char *dest) {
-    int largo = 0;
-    while (orig[largo] != '\0')
-        largo++;
+    int largo = 0;                     // Para contar cuántos caracteres hay
 
-    int fin = largo - 1;
+    while (orig[largo] != '\0')        // Recorre hasta el final del texto
+        largo++;                       // Va sumando caracteres
 
-    for (int i = 0; i < largo; i++) {
-        dest[i] = orig[fin - i];
-    }
+    int fin = largo - 1;               // Última posición del texto
 
-    dest[largo] = '\0';
+    for (int i = 0; i < largo; i++)    // Recorre la cadena
+        dest[i] = orig[fin - i];       // Copia los caracteres al revés
+
+    dest[largo] = '\0';                // Cierra la cadena invertida
 }
 
 int main() {
-    char texto[200];
-    char invertida[200];
+    char texto[200];       // Almacena el texto ingresado
+    char invertida[200];   // Almacena el texto invertido
 
     printf("Ingrese un texto: ");
-    scanf(" %[^\n]", texto);
+    scanf(" %[^\n]", texto);   
 
-    Invertir(texto, invertida);
+    Invertir(texto, invertida); // Invierte la cadena
 
     printf("Cadena invertida: %s\n", invertida);
-
-    return 0;
 }
