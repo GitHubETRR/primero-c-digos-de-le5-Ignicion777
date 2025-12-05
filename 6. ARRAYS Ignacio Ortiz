@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define TAM 20   // El vector tendrá 20 posiciones
+
+// Carga el vector con números aleatorios entre 20 y 90
+void CargaVector(int vec[]) {
+    for (int i = 0; i < TAM; i++)
+        vec[i] = rand() % 71 + 20;  // Genera valores entre 20 y 90
+}
+
+// Invierte el vector original dentro de otro vector
+void InvertirVector(int orig[], int invertido[]) {
+    int fin = TAM - 1;                     // Última posición del vector
+    for (int i = 0; i < TAM; i++)
+        invertido[i] = orig[fin - i];      // Copia desde el final hacia el inicio
+}
+
+// Muestra cualquier vector por pantalla
+void MostrarVector(int vec[]) {
+    for (int i = 0; i < TAM; i++)
+        printf("%d ", vec[i]);             // Imprime cada número
+    printf("\n");
+}
+
+int main() {
+    srand(time(NULL));       // Genera aleatoriamente el vector
+
+    int A[TAM], B[TAM];      // A será el original, B el invertido
+
+    CargaVector(A);          // Se carga el vector A con números aleatorios
+    InvertirVector(A, B);    // Se invierte y se guarda en B
+
+    printf("\nVector original:\n");
+    MostrarVector(A);        // Muestra el vector A
+
+    printf("\nVector invertido:\n");
+    MostrarVector(B);        // Muestra el vector B
+}
