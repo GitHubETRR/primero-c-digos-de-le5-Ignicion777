@@ -3,27 +3,25 @@
 int main() {
     int n; 
     printf("Ingrese el tamaño de los vectores: ");
-    scanf("%d", &n);
+    scanf("%d", &n);                     // Guarda el tamaño de los vectores
 
-    int A[n], B[n];
-    int producto = 0; 
+    int A[n], B[n];                      // Declara dos vectores con ese tamaño
+    int producto = 0;                    // Acumulará el resultado final
 
     printf("Ingrese los elementos del vector A:\n");
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {        // Carga el vector A elemento por elemento
         printf("A[%d]: ", i);
         scanf("%d", &A[i]);
     }
 
     printf("Ingrese los elementos del vector B:\n");
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {        // Carga el vector B
         printf("B[%d]: ", i);
         scanf("%d", &B[i]);
     }
-    for (int i = 0; i < n; i++) {
-        producto += A[i] * B[i];
-    }
+
+    for (int i = 0; i < n; i++)          // Recorre ambos vectores
+        producto += A[i] * B[i];         // Multiplica en la misma posición y suma
 
     printf("El producto escalar de los dos vectores es: %d\n", producto);
-
-    return 0;
 }
