@@ -1,43 +1,47 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <stdio.h>     
+#include <stdlib.h>    
+#include <time.h>      
 
-#define TAM 50
+#define TAM 50         // Tamaño del vector
 
+// Función que cuenta cuántas veces aparece el elemento de mayor valor del vector
 int contarMayor(int vec[], int tam) {
-    int mayor = vec[0];
-    int contador = 0;
+    int mayor = vec[0];    // Supongo que el primer número es el más grande
+    int contador = 0;      // Para contar cuántas veces se repite
 
-    for (int i = 1; i < tam; i++) {
-        if (vec[i] > mayor) {
-            mayor = vec[i];
+    // Busco el número más grande
+    for (int i = 1; i < tam; i++) {   // Recorro las posiciones del vector
+        if (vec[i] > mayor) {        // Si encuentro uno mayor
+            mayor = vec[i];          // Lo guardo como el nuevo mayor
         }
     }
 
+    // Cuento cuántas veces aparece ese número mayor
     for (int i = 0; i < tam; i++) {
-        if (vec[i] == mayor) {
-            contador++;
+        if (vec[i] == mayor) {       // Si es igual al número mayor
+            contador++;              // Sumo 1 al contador
         }
     }
 
-    return contador;
+    return contador;  // Devuelve la cantidad encontrada
 }
 
 int main() {
-    int vec[TAM];
-    srand(time(NULL)); 
+    int vec[TAM];              // Creo el vector
+    srand(time(NULL));         // Activo la generación aleatoria
 
+    // Cargo el vector con números entre 10 y 20
     for (int i = 0; i < TAM; i++) {
-        vec[i] = rand() % 11 + 10; 
+        vec[i] = rand() % 11 + 10;  // Número aleatorio dentro del rango
     }
 
     printf("Vector generado:\n");
-    for (int i = 0; i < TAM; i++) {
+    for (int i = 0; i < TAM; i++) { // Muestro el vector
         printf("%d ", vec[i]);
     }
 
-    int repeticiones = contarMayor(vec, TAM);
-    printf("\n\nEl mayor valor se repite %d veces.\n", repeticiones);
+    int repeticiones = contarMayor(vec, TAM); 
+    printf("\n\nEl mayor valor se repite %d veces.\n", repeticiones); // Muestro la cantidad de veces que aparece el elemento de mayor valor 
 
-    return 0;
+    return 0;  
 }
